@@ -1,0 +1,6 @@
+{
+  "name": "Cota Cero",
+  "description": "Superficies y Terminaciones | Protocolo de Obra",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

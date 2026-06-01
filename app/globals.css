@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-graphite: #1E1E20;
+  --color-graphite-medium: #3A3A3C;
+  --color-bone: #ECE5D6;
+  --color-copper: #B06F4E;
+  --color-copper-light: #C98A66;
+  
+  --font-sans: var(--font-barlow), sans-serif;
+  --font-display: var(--font-barlow-condensed), sans-serif;
+  --font-editorial: var(--font-cormorant), serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
