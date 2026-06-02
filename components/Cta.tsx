@@ -110,15 +110,20 @@ export function Cta() {
               />
             </div>
             
-            <div className="pt-8 text-center">
-              <button 
-                type="submit"
-                className="w-full sm:w-auto min-w-[240px] inline-flex items-center justify-center bg-copper text-bone px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-copper-light transition-colors duration-300"
-              >
-                Quiero mi relevamiento
-              </button>
-              <p className="font-sans text-bone/50 text-sm mt-4">
-                Te contactamos en menos de 24 hs hábiles.
+            <div className="pt-8 text-center flex flex-col items-center">
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <button 
+                  type="submit"
+                  className="w-full sm:w-auto min-w-[240px] inline-flex items-center justify-center bg-copper text-graphite px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-copper-light transition-colors duration-300"
+                >
+                  Quiero mi relevamiento
+                </button>
+                <div className="text-bone/60 font-sans italic text-sm">
+                  o <a href="https://wa.me/5491100000000?text=Hola,%20quiero%20agendar%20un%20relevamiento%20para%20mi%20obra" target="_blank" rel="noopener noreferrer" className="text-copper hover:text-copper-light underline underline-offset-4 font-medium not-italic transition-colors">escribinos por WhatsApp</a>
+                </div>
+              </div>
+              <p className="font-sans text-bone/50 text-sm mt-8">
+                Te contactamos en menos de 24 hs hábiles. El relevamiento es sin cargo.
               </p>
             </div>
           </motion.form>

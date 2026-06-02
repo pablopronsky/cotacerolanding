@@ -16,17 +16,27 @@ export function Materials() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="order-2 lg:order-1 relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none"
+            className="order-2 lg:order-1 relative aspect-[4/5] w-full max-w-sm mx-auto lg:max-w-none grid grid-cols-2 grid-rows-2 gap-[2px] bg-copper/20"
           >
-            <Image
-              src={matImg}
-              alt="Premium surface samples"
-              fill
-              className="object-cover"
-              referrerPolicy="no-referrer"
-            />
-            {/* Subtle shadow gradient overlay to blend perfectly */}
-            <div className="absolute inset-0 bg-gradient-to-t from-graphite/40 to-transparent pointer-events-none" />
+            {/* Split the image across the grid conceptually, or use a grid of images if we had multiple. Since we only have one image, we'll place it as a full cover, but simulate the grid requested */}
+            <div className="absolute inset-0 z-0">
+               <Image
+                src={matImg}
+                alt="Premium surface samples"
+                fill
+                className="object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            {/* Subtle overlay grid lines */}
+            <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-evenly">
+              <div className="w-full h-px bg-graphite" />
+              <div className="w-full h-px bg-graphite" />
+            </div>
+            <div className="absolute inset-0 pointer-events-none z-10 flex flex-row justify-evenly">
+              <div className="w-px h-full bg-graphite" />
+              <div className="w-px h-full bg-graphite" />
+            </div>
           </motion.div>
 
           <div className="order-1 lg:order-2 space-y-8 lg:pl-12">

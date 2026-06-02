@@ -25,7 +25,7 @@ export function Hero() {
 
       {/* Header/Nav */}
       <header className="absolute top-0 left-0 w-full p-8 z-20 flex justify-between items-center">
-        <Logo />
+        <Logo variant="light" showSubtitle={true} />
         <a href="#contacto" className="text-bone uppercase tracking-widest text-sm hover:text-copper transition-colors">
           Contacto
         </a>
@@ -57,20 +57,21 @@ export function Hero() {
             className="h-[2px] w-24 bg-copper my-8 origin-left"
           />
 
-          <p className="text-bone/80 text-lg sm:text-xl font-sans max-w-xl leading-relaxed mb-10">
-            No vendemos pisos. Garantizamos cómo se instalan. Un protocolo de obra que controla cada etapa, desde el sustrato hasta la última terminación.
+          <p className="text-bone/80 text-xl sm:text-2xl font-sans font-medium max-w-2xl leading-relaxed mb-10">
+            No vendemos pisos. Controlamos cómo se instalan. Un protocolo de obra que no deja nada librado al azar: del sustrato a la última terminación.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <a 
-              href="#contacto"
-              className="inline-flex items-center justify-center bg-copper text-bone px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-copper-light transition-colors duration-300"
+              href="https://wa.me/5491100000000?text=Hola,%20quiero%20agendar%20un%20relevamiento%20para%20mi%20obra"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-copper text-graphite px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-copper-light transition-colors duration-300"
             >
               Agendá tu relevamiento
             </a>
             <a 
               href="#protocolo"
-              className="inline-flex items-center gap-2 group text-bone hover:text-copper transition-colors py-4 uppercase tracking-widest text-sm"
+              className="inline-flex items-center gap-2 group text-bone hover:text-copper transition-colors py-4 uppercase tracking-widest text-sm font-bold"
             >
               <span>Conocé el protocolo</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

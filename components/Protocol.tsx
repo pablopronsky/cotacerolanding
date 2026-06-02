@@ -7,6 +7,7 @@ import prot2 from '@/src/assets/images/protocolo_preparacion_1780354992349.png';
 import prot3 from '@/src/assets/images/protocolo_aclimatacion_1780355003915.png';
 import prot4 from '@/src/assets/images/protocolo_instalacion_1780354923130.png';
 import prot5 from '@/src/assets/images/protocolo_terminaciones_1780354936031.png';
+import prot6 from '@/src/assets/images/protocolo_cierre_1780364011686.png';
 
 const steps = [
   {
@@ -41,15 +42,15 @@ const steps = [
   },
   {
     num: "06",
-    title: "Entrega y garantía",
-    desc: "Acta de final de obra y certificado de garantía. Documentamos lo que hicimos y respondemos por ello. Por escrito.",
-    img: null // Option to use icon
+    title: "Entrega y Cierre",
+    desc: "Recorremos la obra terminada con vos y revisamos cada detalle. Te dejamos el registro completo de lo que se hizo —materiales, etapas y terminaciones— para que sepas exactamente qué quedó y cómo.",
+    img: prot6
   }
 ];
 
 export function Protocol() {
   return (
-    <section id="protocolo" className="bg-bone py-32 w-full text-graphite">
+    <section id="protocolo" className="bg-bone pt-32 pb-24 w-full text-graphite relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         
         {/* Header */}
@@ -63,13 +64,26 @@ export function Protocol() {
           <div className="h-[2px] w-16 bg-copper mt-8" />
         </div>
 
-        {/* Steps */}
-        <div className="space-y-32 md:space-y-48">
+        {/* Steps with vertical line */}
+        <div className="relative space-y-24 md:space-y-48">
+          <div className="absolute left-[24px] lg:left-1/2 top-0 bottom-0 w-[1px] bg-copper-light/30 -translate-x-1/2 z-0 hidden lg:block" />
+          
           {steps.map((step, idx) => (
             <Step key={step.num} step={step} reverse={idx % 2 !== 0} />
           ))}
         </div>
 
+        <div className="mt-32 md:mt-48 text-center bg-graphite rounded-xl p-12 text-bone">
+           <h3 className="text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-8">
+             Tu obra puede empezar bien.
+           </h3>
+           <a 
+              href="#contacto"
+              className="inline-flex items-center justify-center bg-copper text-graphite px-8 py-4 uppercase tracking-widest text-sm font-bold hover:bg-copper-light transition-colors duration-300"
+            >
+              Agendá tu relevamiento sin cargo
+            </a>
+        </div>
       </div>
     </section>
   );
@@ -77,7 +91,7 @@ export function Protocol() {
 
 function Step({ step, reverse }: { step: any, reverse: boolean }) {
   return (
-    <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
+    <div className={`relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
       
       {/* Text */}
       <div className="flex-1 space-y-6">
@@ -86,12 +100,12 @@ function Step({ step, reverse }: { step: any, reverse: boolean }) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex items-end gap-6"
+          className="flex items-center gap-6"
         >
           <span className="text-6xl sm:text-8xl font-editorial font-medium text-copper leading-none">
             {step.num}
           </span>
-          <div className="h-[1px] w-12 bg-copper-light mb-4 sm:mb-6 hidden sm:block" />
+          <div className="flex-1 h-[1px] bg-copper-light lg:hidden" />
         </motion.div>
         
         <motion.h3 
@@ -121,30 +135,17 @@ function Step({ step, reverse }: { step: any, reverse: boolean }) {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="flex-1 w-full"
+        className="flex-1 w-full relative"
       >
-        {step.img ? (
-          <div className="relative aspect-[3/2] w-full bg-graphite/5">
-            <Image
-              src={step.img}
-              alt={step.title}
-              fill
-              className="object-cover"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        ) : (
-          <div className="relative aspect-[3/2] w-full flex items-center justify-center border border-copper/30 bg-graphite/5">
-            <div className="text-center">
-              <div className="w-16 h-16 border-2 border-copper rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-copper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <span className="font-editorial text-copper italic text-lg">Documentado y Garantizado</span>
-            </div>
-          </div>
-        )}
+        <div className="relative aspect-[3/2] w-full bg-graphite/5 overflow-hidden ring-1 ring-black/5 rounded-sm">
+          <Image
+            src={step.img}
+            alt={step.title}
+            fill
+            className="object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </div>
       </motion.div>
 
     </div>

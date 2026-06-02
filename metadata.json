@@ -1,6 +1,6 @@
 {
   "name": "Cota Cero",
-  "description": "Superficies y Terminaciones | Protocolo de Obra",
+  "description": "No vendemos pisos. Controlamos cómo se instalan, etapa por etapa, desde el sustrato hasta la última terminación. Superficies y terminaciones premium en City Bell / Gonnet.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

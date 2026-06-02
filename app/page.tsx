@@ -3,7 +3,8 @@ import { Concept } from '@/components/Concept';
 import { Problem } from '@/components/Problem';
 import { Protocol } from '@/components/Protocol';
 import { Materials } from '@/components/Materials';
-import { Works } from '@/components/Works';
+import { SocialProof } from '@/components/SocialProof';
+import { MethodBacked } from '@/components/MethodBacked';
 import { Cta } from '@/components/Cta';
 import { Footer } from '@/components/Footer';
 
@@ -15,7 +16,8 @@ export default function Page() {
       <Problem />
       <Protocol />
       <Materials />
-      <Works />
+      <SocialProof />
+      <MethodBacked />
       <Cta />
       <Footer />
     </main>
