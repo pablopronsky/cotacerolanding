@@ -1,50 +1,37 @@
 'use client';
 
-import Image, { StaticImageData } from 'next/image';
 import { motion } from 'motion/react';
-import prot1 from '@/src/assets/images/protocolo_relevamiento_1780354909573.png';
-import prot2 from '@/src/assets/images/protocolo_preparacion_1780354992349.png';
-import prot3 from '@/src/assets/images/protocolo_aclimatacion_1780355003915.png';
-import prot4 from '@/src/assets/images/protocolo_instalacion_1780354923130.png';
-import prot5 from '@/src/assets/images/protocolo_terminaciones_1780354936031.png';
-import prot6 from '@/src/assets/images/protocolo_cierre_1780364011686.png';
 
 const steps = [
   {
     num: "01",
-    title: "Relevamiento",
-    desc: "Medimos. Diagnosticamos humedad, niveles y estado del sustrato. Definimos la cota cero real de tu obra antes de tocar un solo material.",
-    img: prot1
+    title: "RELEVAMIENTO",
+    desc: "Medimos humedad, niveles y estado del sustrato. Definimos la cota cero real de tu obra antes de tocar un material."
   },
   {
     num: "02",
-    title: "Preparación",
-    desc: "Nivelamos y acondicionamos el sustrato. Sin esta base, ningún material rinde lo que promete. Es la etapa que casi nadie respeta y la que define todo.",
-    img: prot2
+    title: "PREPARACIÓN",
+    desc: "Nivelamos y acondicionamos el sustrato. La base que casi nadie respeta y la que lo define todo."
   },
   {
     num: "03",
-    title: "Aclimatación",
-    desc: "Cada material descansa el tiempo que necesita, en el ambiente donde va a vivir. Sin apuro, sin atajos para entregar antes.",
-    img: prot3
+    title: "ACLIMATACIÓN",
+    desc: "Cada material descansa el tiempo que necesita, en el ambiente donde va a vivir. Sin atajos."
   },
   {
     num: "04",
-    title: "Instalación",
-    desc: "Instaladores certificados bajo protocolo. Cada plancha, cada junta, cada detalle ejecutado según método. Lo mismo, siempre.",
-    img: prot4
+    title: "INSTALACIÓN",
+    desc: "Instaladores certificados bajo protocolo. Cada plancha y cada junta, ejecutadas según método."
   },
   {
     num: "05",
-    title: "Terminaciones",
-    desc: "Perfiles, zócalos, transiciones y sellados. El detalle que separa una obra de un trabajo cualquiera.",
-    img: prot5
+    title: "TERMINACIONES",
+    desc: "Perfiles, zócalos, transiciones y sellados. El detalle que separa una obra de un trabajo cualquiera."
   },
   {
     num: "06",
-    title: "Entrega y Cierre",
-    desc: "Recorremos la obra terminada con vos y revisamos cada detalle. Te dejamos el registro completo de lo que se hizo —materiales, etapas y terminaciones— para que sepas exactamente qué quedó y cómo.",
-    img: prot6
+    title: "ENTREGA Y CIERRE",
+    desc: "Recorremos la obra terminada con vos y te dejamos el registro completo de lo que se hizo."
   }
 ];
 
@@ -54,26 +41,55 @@ export function Protocol() {
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
         
         {/* Header */}
-        <div className="mb-24 md:mb-32">
+        <div className="mb-16 md:mb-24 flex flex-col md:items-center md:text-center">
           <span className="block text-copper uppercase tracking-[0.2em] text-sm font-bold mb-4">
             El Protocolo
           </span>
           <h2 className="text-4xl sm:text-6xl font-display font-bold uppercase tracking-tight">
             Seis etapas. Cero atajos.
           </h2>
-          <div className="h-[2px] w-16 bg-copper mt-8" />
         </div>
 
-        {/* Steps with vertical line */}
-        <div className="relative space-y-24 md:space-y-48">
-          <div className="absolute left-[24px] lg:left-1/2 top-0 bottom-0 w-[1px] bg-copper-light/30 -translate-x-1/2 z-0 hidden lg:block" />
+        {/* Grid Block */}
+        <div className="relative w-full bg-[#1A1A1C] border-t border-l border-white/5 overflow-hidden shadow-2xl">
+          {/* Top Copper Line */}
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-copper z-20" />
           
-          {steps.map((step, idx) => (
-            <Step key={step.num} step={step} reverse={idx % 2 !== 0} />
-          ))}
+          {/* Subtle Grid Pattern */}
+          <div 
+            className="absolute inset-0 z-0 opacity-[0.03]"
+            style={{ 
+              backgroundImage: 'linear-gradient(to right, #ece5d6 1px, transparent 1px), linear-gradient(to bottom, #ece5d6 1px, transparent 1px)', 
+              backgroundSize: '32px 32px' 
+            }}
+          />
+          
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            {steps.map((step, idx) => (
+              <motion.div 
+                key={step.num}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="p-6 sm:p-8 flex flex-col border-b border-r border-white/5 relative bg-graphite/40"
+              >
+                <span className="font-editorial text-3xl sm:text-4xl text-copper italic mb-6">
+                  {step.num}
+                </span>
+                <h3 className="font-display font-bold text-lg sm:text-xl text-bone uppercase tracking-widest mb-3">
+                  {step.title}
+                </h3>
+                <p className="font-sans text-sm sm:text-base text-bone/80 leading-relaxed">
+                  {step.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-32 md:mt-48 text-center bg-graphite rounded-xl p-12 text-bone">
+        {/* CTA Bridge */}
+        <div className="mt-24 md:mt-32 text-center bg-graphite rounded-xl p-12 text-bone">
            <h3 className="text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-8">
              Tu obra puede empezar bien.
            </h3>
@@ -86,68 +102,5 @@ export function Protocol() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Step({ step, reverse }: { step: any, reverse: boolean }) {
-  return (
-    <div className={`relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${reverse ? 'lg:flex-row-reverse' : ''}`}>
-      
-      {/* Text */}
-      <div className="flex-1 space-y-6">
-        <motion.div 
-          initial={{ opacity: 0, x: reverse ? 20 : -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-6"
-        >
-          <span className="text-6xl sm:text-8xl font-editorial font-medium text-copper leading-none">
-            {step.num}
-          </span>
-          <div className="flex-1 h-[1px] bg-copper-light lg:hidden" />
-        </motion.div>
-        
-        <motion.h3 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-4xl font-display font-bold uppercase tracking-tight"
-        >
-          {step.title}
-        </motion.h3>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg sm:text-xl font-sans text-graphite-medium leading-relaxed max-w-xl cursor-default"
-        >
-          {step.desc}
-        </motion.p>
-      </div>
-
-      {/* Image */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
-        className="flex-1 w-full relative"
-      >
-        <div className="relative aspect-[3/2] w-full bg-graphite/5 overflow-hidden ring-1 ring-black/5 rounded-sm">
-          <Image
-            src={step.img}
-            alt={step.title}
-            fill
-            className="object-cover"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-      </motion.div>
-
-    </div>
   );
 }
